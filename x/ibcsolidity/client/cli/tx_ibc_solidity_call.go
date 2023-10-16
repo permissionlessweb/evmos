@@ -14,16 +14,28 @@ import (
 
 func CmdIBCSolidityCall() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "ibc-solidity-call [host-zone-id] [contract-address]",
+		Use:   "ibc-solidity-call [host-zone-id] [contract-address] [solidity-msg]",
 		Short: "Broadcast message ibc-solidity-call",
-		Args:  cobra.ExactArgs(2),
+		Args:  cobra.ExactArgs(3),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
-			
-			// host-zone-id is the id of the network the solidity contract is stored.
-		
-			// contract address is the string of the address being called
+			argChainId := args[0]
 
-			// SolidityMsg is the msg being called to the solidity contract
+			clientCtx, err := client.GetClientTxContext(cmd)
+			if err != nil {
+				return err
+			}
+
+			msg := types.NewMsgIBCSolidityCall(
+				clientCtx.GetFromAddress().String(),
+				argChainId,
+				solidityContractAddress,
+				solidityMsg,
+			)
+
+			if err := msg.ValidateBasic(); err != nil {
+				return err
+			}
+			return tx.GenerateOrBroadcastTxCLI(clientCtx, cmd.Flags(), msg)
 
 		},
 	}

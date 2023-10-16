@@ -15,11 +15,15 @@ import (
 func (k Keeper) BeginBlocker(ctx sdk.Context) {
 	defer telemetry.ModuleMeasureSince(types.ModuleName, time.Now(), telemetry.MetricKeyBeginBlocker)
 
+	// Iterate over all host zone and verify ...?
+
+
 	k.AssertEvmosAndDayEpochRelationship(ctx)
 }
 
 func (k Keeper) EndBlocker(ctx sdk.Context) {
-	// Submit an IBC transfer or detokenization ICA for all queued LSM Deposits across each host
+	// Submit an IBC Solidity Call or ...? for all queued IBC Solidity Calls across each host
+
+
 	k.SendAllIBCSolidityCalls(ctx)
-	// k.DetokenizeAllLSMDeposits(ctx)
 }

@@ -24,7 +24,6 @@ func GetTxCmd() *cobra.Command {
 		RunE:                       client.ValidateCmd,
 	}
 
-	cmd.AddCommand(CmdSolidityCall())
 	cmd.AddCommand(CmdIBCSolidityCall())
 	cmd.AddCommand(CmdRegisterHostZone())
 	cmd.AddCommand(CmdRestoreInterchainAccount())
