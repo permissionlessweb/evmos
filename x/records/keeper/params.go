@@ -3,7 +3,7 @@ package keeper
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/Stride-Labs/stride/v16/x/records/types"
+	"github.com/evmos/evmos/v14/x/records/types"
 )
 
 // GetParams get all parameters as types.Params

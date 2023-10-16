@@ -4,8 +4,8 @@ import (
 	sdkmath "cosmossdk.io/math"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	recordstypes "github.com/Stride-Labs/stride/v16/x/records/types"
-	"github.com/Stride-Labs/stride/v16/x/stakeibc/types"
+	recordstypes "github.com/evmos/evmos/v14/x/records/types"
+	"github.com/evmos/evmos/v14/x/ibcsolidity/types"
 )
 // Emits a successful Solidity contract call, and displays such as the response
 func EmitSuccessfulSolidityCallEvent(ctx sdk.Context, msg *types.MsgSolidityCall, hostZone, types.HostZone, solidityMsg types.SolidityMsg) {

@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"github.com/Stride-Labs/stride/v16/x/stakeibc/types"
+	"github.com/evmos/evmos/v14/x/ibcsolidity/types"
 )
 
 type msgServer struct {

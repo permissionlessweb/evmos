@@ -1,10 +1,10 @@
-package stakeibc
+package ibcsolidity
 
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/Stride-Labs/stride/v16/x/stakeibc/keeper"
-	"github.com/Stride-Labs/stride/v16/x/stakeibc/types"
+	"github.com/evmos/evmos/v14/x/ibcsolidity/keeper"
+	"github.com/evmos/evmos/v14/x/ibcsolidity/types"
 )
 
 // InitGenesis initializes the capability module's state from a provided genesis

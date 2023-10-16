@@ -1,7 +1,7 @@
 package client
 
 import (
-	"github.com/Stride-Labs/stride/v16/x/stakeibc/client/cli"
+	"github.com/evmos/evmos/v14/x/ibcsolidity/client/cli"
 
 	govclient "github.com/cosmos/cosmos-sdk/x/gov/client"
 )
