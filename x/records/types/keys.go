@@ -30,20 +30,20 @@ func KeyPrefix(p string) []byte {
 	return []byte(p)
 }
 
-// Create the LSMTokenDeposit prefix as chainId + denom
-func GetIBCSolidityCallKey(chainId, denom string) []byte {
-	return append([]byte(chainId), []byte(denom)...)
-}
+// // Create the LSMTokenDeposit prefix as chainId + denom
+// func GetLSMTokenDepositKey(chainId, denom string) []byte {
+// 	return append([]byte(chainId), []byte(denom)...)
+// }
 
 // const (
 // 	UserRedemptionRecordKey      = "UserRedemptionRecord-value-"
 // 	UserRedemptionRecordCountKey = "UserRedemptionRecord-count-"
 // )
 
-const (
-	// EpochUnbondingRecordKey      = "EpochUnbondingRecord-value-"
-	// EpochUnbondingRecordCountKey = "EpochUnbondingRecord-count-"
-	SolidityContractKey             = "SolidityContractRecord-value-"
-	SolidityContractCountKey        = "SolidityContractRecord-count-"
-	IBCSolidityContractKey 		    = "IBCSolidityContract"
-)
+// const (
+// 	EpochUnbondingRecordKey      = "EpochUnbondingRecord-value-"
+// 	EpochUnbondingRecordCountKey = "EpochUnbondingRecord-count-"
+// 	DepositRecordKey             = "DepositRecord-value-"
+// 	DepositRecordCountKey        = "DepositRecord-count-"
+// 	LSMTokenDepositKey           = "LSMTokenDeposit"
+// )

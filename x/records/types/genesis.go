@@ -19,7 +19,7 @@ func DefaultGenesis() *GenesisState {
 		// EpochUnbondingRecordList:  []EpochUnbondingRecord{},
 		// DepositRecordList:         []DepositRecord{},
 		// DepositRecordCount:        0,
-		LsmTokenDepositList:       []LSMTokenDeposit{},
+		// LsmTokenDepositList:       []LSMTokenDeposit{},
 	}
 }
 
@@ -29,7 +29,7 @@ func (gs GenesisState) Validate() error {
 	if err := host.PortIdentifierValidator(gs.PortId); err != nil {
 		return err
 	}
-	// Check for duplicated ID in userRedemptionRecord
+	// // Check for duplicated ID in userRedemptionRecord
 	// userRedemptionRecordIdMap := make(map[string]bool)
 	// for _, elem := range gs.UserRedemptionRecordList {
 	// 	if _, ok := userRedemptionRecordIdMap[elem.Id]; ok {
@@ -37,7 +37,7 @@ func (gs GenesisState) Validate() error {
 	// 	}
 	// 	userRedemptionRecordIdMap[elem.Id] = true
 	// }
-	// Check for duplicated ID in epochUnbondingRecord
+	// // Check for duplicated ID in epochUnbondingRecord
 	// epochUnbondingRecordIdMap := make(map[uint64]bool)
 	// for _, elem := range gs.EpochUnbondingRecordList {
 	// 	if _, ok := epochUnbondingRecordIdMap[elem.EpochNumber]; ok {
@@ -45,7 +45,7 @@ func (gs GenesisState) Validate() error {
 	// 	}
 	// 	epochUnbondingRecordIdMap[elem.EpochNumber] = true
 	// }
-	// Check for duplicated ID in depositRecord
+	// // Check for duplicated ID in depositRecord
 	// depositRecordIdMap := make(map[uint64]bool)
 	// depositRecordCount := gs.GetDepositRecordCount()
 	// for _, elem := range gs.DepositRecordList {
@@ -58,23 +58,6 @@ func (gs GenesisState) Validate() error {
 	// 	depositRecordIdMap[elem.Id] = true
 	// }
 
-	// Check for duplicate Solidity contract addresses
-	ibcSolidityContractIdMap := make(map[string]bool)
-	ibcSolidityContractChainDenomMap := make(map[string]bool)
-	for _, elem := range gs.IBCSolidityContractList {
-		if _, ok := ibcSolidityContractIdMap[elem.SolidityContractId]; ok {
-			return fmt.Errorf("duplicated solidity contract address")
-		}
-		ibcSolidityContractIdMap[elem.SolidityContractId] = true 
-
-		chainDenomId := elem.ChainId + elem.Denom
-		if _, ok := ibcSolidityContractChainDenomMap[chainDenomId]; ok {
-			return fmt.Errorf("duplicated chain ID and denom")
-		}
-
-		ibcSolidityContractChainDenomMap[chainDenomId] = true
-	}
-	
 	// // Check for duplicate LSM token denoms
 	// lsmTokenDepositIdMap := make(map[string]bool)
 	// lsmTokenDepositChainDenomMap := make(map[string]bool)
